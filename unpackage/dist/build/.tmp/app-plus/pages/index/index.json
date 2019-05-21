@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "主页",
+  "usingComponents": {
+    "uni-grid": "/components/uni-grid/uni-grid"
+  }
+}

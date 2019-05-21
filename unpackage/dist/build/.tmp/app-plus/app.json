@@ -1,0 +1,40 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/user/user"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "black",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#007AFF",
+    "borderStyle": "black",
+    "backgroundColor": "#F8F8F8",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/stop.png",
+        "selectedIconPath": "static/stop.png",
+        "text": "主页"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "iconPath": "static/stop.png",
+        "selectedIconPath": "static/stop.png",
+        "text": "用户"
+      }
+    ]
+  },
+  "splashscreen": {
+    "alwaysShowBeforeRender": true,
+    "autoclose": false
+  },
+  "appname": "uni-sj",
+  "compilerVersion": "1.9.8",
+  "usingComponents": {}
+}
