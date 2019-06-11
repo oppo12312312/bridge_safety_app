@@ -94,5 +94,9 @@
             "urlCheck" : false
         },
         "usingComponents" : true
+    },
+    "h5" : {
+        "title" : "uni-sj",
+        "domain" : "222"
     }
 }

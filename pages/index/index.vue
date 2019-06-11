@@ -12,7 +12,7 @@
 			</view>
 		</view>
 		<view class="info">
-			故障信息
+			故障信息-测试-1
 		</view>
 
 
