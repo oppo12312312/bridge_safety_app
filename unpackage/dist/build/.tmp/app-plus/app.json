@@ -1,11 +1,12 @@
 {
   "pages": [
+    "pages/login/index",
     "pages/index/index",
-    "pages/user/user"
+    "pages/user/user",
+    "pages/qrCode/qrCode"
   ],
   "subPackages": [],
   "window": {
-    "navigationBarTextStyle": "white",
     "navigationBarTitleText": "uni-app",
     "navigationBarBackgroundColor": "black",
     "backgroundColor": "#F8F8F8"
@@ -18,14 +19,20 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "iconPath": "static/stop.png",
-        "selectedIconPath": "static/stop.png",
+        "iconPath": "static/home/home.png",
+        "selectedIconPath": "static/home/home1.png",
         "text": "主页"
       },
       {
+        "pagePath": "pages/qrCode/qrCode",
+        "iconPath": "static/home/shaoma.png",
+        "selectedIconPath": "static/home/shaoma1.png",
+        "text": "扫码"
+      },
+      {
         "pagePath": "pages/user/user",
-        "iconPath": "static/stop.png",
-        "selectedIconPath": "static/stop.png",
+        "iconPath": "static/home/user.png",
+        "selectedIconPath": "static/home/user1.png",
         "text": "用户"
       }
     ]
@@ -35,6 +42,6 @@
     "autoclose": false
   },
   "appname": "uni-sj",
-  "compilerVersion": "1.9.8",
+  "compilerVersion": "1.9.9",
   "usingComponents": {}
 }

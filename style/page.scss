@@ -1,0 +1,22 @@
+.menu {
+			padding: 20upx 10upx;
+
+			text-align: center;
+
+			.uni-flex-item {
+				padding: 5px;
+
+				&:active {
+					background-color: #e4e4e4;
+				}
+			}
+
+			.menu-image {
+				background: #e4e4e4;
+				width: 22px !important;
+				padding: 11px !important;
+				height: 22px !important;
+				border-radius: 22px !important;
+
+			}
+		}
