@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "NB烟感详情",
+  "usingComponents": {
+    "mpvue-echarts": "/components/mpvue-echarts/src/echarts"
+  }
+}

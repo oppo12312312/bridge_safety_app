@@ -1,0 +1,1 @@
+<view class="container"><view><mpvue-echarts class="ec-canvas vue-ref" vue-id="1" canvasId="line" data-ref="lineChart" data-event-opts="{{[['^onInit',[['lineInit']]]]}}" bind:onInit="__e" bind:__l="__l"></mpvue-echarts></view></view>

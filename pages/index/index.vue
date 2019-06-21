@@ -2,7 +2,7 @@
 	<view class="content">
 		<view class="menu-content">
 			<view class="menu menu-1 uni-flex">
-				<view class="uni-flex-item" v-for="(item, index) in menu1" :key="index">
+				<view @click="openPage(item)" class="uni-flex-item" v-for="(item, index) in menu1" :key="index">
 					<view class="">
 						<image class="menu-image" :class="'img-'+index" :src="item.image" mode=""></image>
 					</view>
@@ -10,7 +10,7 @@
 				</view>
 			</view>
 			<view class="menu menu-2 uni-flex">
-				<view class="uni-flex-item" v-for="(item, index) in menu2" :key="index">
+				<view @click="openPage(item)" class="uni-flex-item" v-for="(item, index) in menu2" :key="index">
 					<view class="">
 						<image class="menu-image" :class="'img-'+index" :src="item.image" mode=""></image>
 					</view>
@@ -31,12 +31,13 @@
 		<view class="info">
 			测试
 		</view>
+
 	</view>
 </template>
 
 <script>
-	import uniGrid from '../../components/uni-grid/uni-grid.vue'
 	export default {
+		name: "home",
 		data() {
 			return {
 				title: 'Hello',
@@ -75,6 +76,7 @@
 					},
 					{
 						image: '../../static/menu/yangan.png',
+						"path": "yangan/yangan",
 						text: '烟感'
 					},
 
@@ -102,13 +104,22 @@
 				]
 			}
 		},
-		components: {
-			uniGrid
-		},
 		onLoad() {
 
 		},
 		methods: {
+			openPage(item) {
+				if (item.path) {
+					uni.navigateTo({
+						url: item.path
+					});
+				} else {
+					uni.showModal({
+						content: "模块开发中",
+						showCancel: false
+					});
+				}
+			}
 
 		}
 	}
@@ -184,8 +195,10 @@
 
 			}
 		}
+
 		.menu-1 {
 			padding-bottom: 0;
+
 			.img-0 {
 				background: #f25743
 			}

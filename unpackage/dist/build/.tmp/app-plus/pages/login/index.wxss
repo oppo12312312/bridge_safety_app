@@ -82,7 +82,31 @@
     width: 22px !important;
     padding: 11px !important;
     height: 22px !important;
-    border-radius: 22px !important;
+    -webkit-border-radius: 22px !important;
+            border-radius: 22px !important;
+}
+.yangan .popup .uni-mask, .yangan .popup .uni-popup {
+  top: 160rpx;
+}
+.active:active {
+  background-color: #e4e4e4;
+}
+.meg-border {
+  position: relative;
+}
+.meg-border:after {
+    position: absolute;
+    z-index: 3;
+    right: 0;
+    bottom: 0;
+    left: 12rpx;
+    right: 12rpx;
+    height: 1px;
+    content: '';
+    -webkit-transform: scaleY(0.5);
+    -ms-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+    background-color: #c8c7cc;
 }
 /* 颜色变量 */
 /* 行为相关颜色 */
@@ -116,23 +140,6 @@
 }
 .login .user {
     margin: 0 50rpx;
-}
-.login .user .border {
-      position: relative;
-}
-.login .user .border:after {
-        position: absolute;
-        z-index: 3;
-        right: 0;
-        bottom: 0;
-        left: 12rpx;
-        right: 12rpx;
-        height: 1px;
-        content: '';
-        -webkit-transform: scaleY(0.5);
-        -ms-transform: scaleY(0.5);
-        transform: scaleY(0.5);
-        background-color: #c8c7cc;
 }
 .login .user .uni-input {
       padding: 7px 20px;

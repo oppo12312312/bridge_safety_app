@@ -3,7 +3,10 @@
     "pages/login/index",
     "pages/index/index",
     "pages/user/user",
-    "pages/qrCode/qrCode"
+    "pages/qrCode/qrCode",
+    "pages/index/yangan/yangan",
+    "pages/index/yangan/detail",
+    "pages/user/editPassword/index"
   ],
   "subPackages": [],
   "window": {
@@ -37,11 +40,12 @@
       }
     ]
   },
+  "nvueCompiler": "weex",
   "splashscreen": {
     "alwaysShowBeforeRender": true,
     "autoclose": false
   },
   "appname": "uni-sj",
-  "compilerVersion": "1.9.9",
+  "compilerVersion": "2.0.1",
   "usingComponents": {}
 }

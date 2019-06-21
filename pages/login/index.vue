@@ -4,11 +4,11 @@
 		<view class="user">
 			<view class="uni-form-item uni-column">
 				<input class="uni-input" v-model="userName" type="text" placeholder="请输入登录账号" />
-				<view class="border"></view>
+				<view class="meg-border"></view>
 			</view>
 			<view class="uni-form-item uni-column">
 				<input class="uni-input" password v-model="password" type="text" placeholder="请输入登录密码" />
-				<view class="border"></view>
+				<view class="meg-border"></view>
 			</view>
 			<label class="uni-list-cell-re uni-list-cell-pd">
 				<checkbox-group @change="changeKeep">
@@ -19,13 +19,10 @@
 			</label>
 			<button class="button" type="primary" @click="login">登录</button>
 		</view>
-
 	</view>
 </template>
 
 <script>
-	import service from "../../service/index.js"
-
 	export default {
 		data() {
 			return {
@@ -39,10 +36,10 @@
 			uni.getStorage({
 				key: 'userInfo',
 				success: function(res) {
-					let data= res.data;
+					let data = res.data;
 					scope.userName = data.userName;
 					scope.password = data.password;
-					scope.keep = true;
+					scope.keep = data.keep;
 					console.log(res);
 				}
 			});
@@ -69,25 +66,13 @@
 					return;
 				}
 				let scope = this;
-				service.login({
+				this.$service.login.login({
 					"password": this.password,
 					"userName": this.userName
 				}).then(data => {
-					if (data.data.code === 0) {
-						console.log(this.keep);
-						uni.setStorage({
-							key: 'userInfo',
-							data: {
-								password: scope.password,
-								userName: scope.userName
-							},
-							success: function() {
-								console.log('success');
-							}
-						});
-						uni.switchTab({
-							url: '/pages/index/index'
-						});
+					if (data.code === 0) {
+						scope.setUserInfo(data.msg);
+
 					} else {
 						scope.keep = false;
 						uni.showModal({
@@ -97,8 +82,36 @@
 					}
 
 				})
+			},
+			setUserInfo(token) {
+				let scope = this;
+				uni.setStorageSync('userInfo', {
+					token: token
+				})
+				this.$service.myuser.findUserByToken({
+					token
+				}).then(data => {
+					this.$service.myuser.findDepartmentByOrgId({
+						orgId: data.msg.user.orgId
+					}).then(depInfo => {
+						let keepValue = {};
+						uni.setStorageSync('userInfo', {
+							user: data.msg.user,
+							token: token,
+							depInfo: depInfo.msg.department,
+							keep: scope.keep,
+							password: scope.password,
+							userName: scope.userName
+						})
+						uni.switchTab({
+							url: '/pages/index/index'
+						});
+					})
+
+				})
 			}
-		},
+		}
+
 	}
 </script>
 
@@ -116,24 +129,7 @@
 		.user {
 			margin: 0 50upx;
 
-			.border {
-				position: relative;
 
-				&:after {
-					position: absolute;
-					z-index: 3;
-					right: 0;
-					bottom: 0;
-					left: 12upx;
-					right: 12upx;
-					height: 1px;
-					content: '';
-					-webkit-transform: scaleY(0.5);
-					-ms-transform: scaleY(0.5);
-					transform: scaleY(0.5);
-					background-color: #c8c7cc;
-				}
-			}
 
 			.uni-input {
 				input {
