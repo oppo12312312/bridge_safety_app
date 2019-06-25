@@ -1,6 +1,7 @@
 let baseUrl = "http://39.97.111.250:8181";
 
 export default {
+	baseUrl,
 	getHeader(){
 		const value = uni.getStorageSync('userInfo');
 	    return {

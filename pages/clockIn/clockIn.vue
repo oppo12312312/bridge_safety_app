@@ -31,16 +31,31 @@
 				</block>
 			</view>
 		</view>
+
+		<view class="text">
+			<view class="title">
+				备注说明：
+			</view>
+			<view class="uni-textarea">
+				<textarea v-model="text" placeholder="请输入备注" />
+				</view>
+			
+		</view>
+		<button type="primary" @click="enter">确认打卡</button>
+
 		
 
 	</view>
 </template>
 
 <script>
+	import util from '../../common/util.js'
 	export default {
 		data() {
 			return {
 				imageSrc: "",
+				text: '',
+				url:'',
 				locationName: '当前位置',
 				title: 'map',
 				latitude: 39.909,
@@ -52,17 +67,49 @@
 				}]
 			}
 		},
-		mounted() {
+		onLoad() {
+			this.covers[0].latitude =  38.909;
+			this.latitude =  38.909;
 			this.getLocation()
 		},
+		computed:{
+			userId(){
+				const userInfo = uni.getStorageSync('userInfo');
+				return userInfo.user.userId;
+			},
+			scheduleDate(){
+				return util.dateUtils.formatNow();
+			},
+			scheduleStatic(){
+				var date = new Date();
+				return date.getHours() < 12 ? 1 : 2;
+			}
+		},
 		methods: {
+			enter(){
+				this.$service.schedule.addSchedule({
+					"latitude": this.latitude,
+					"longitude": this.longitude,
+					"scheduleDate": this.scheduleDate,
+					"scheduleExplain":this.text,
+					"scheduleId": "null",
+					"scheduleStatic": this.scheduleStatic,
+					"url": this.url,
+					"userId": this.userId
+				}).then(data => {
+					uni.showModal({
+						content: '打卡成功',
+						showCancel: false
+					});
+				})
+			},
 			getLocation() {
 				uni.getLocation({
 					// type: 'gcj02',
 					success: function(res) {
-						debugger
-						console.log('当前位置的经度：' + res.longitude);
-						console.log('当前位置的纬度：' + res.latitude);
+						this.longitude = res.longitude;
+						this.latitude = res.latitude;
+						this.locationName = res.district + " " + res.street
 					}
 				});
 			},
@@ -73,37 +120,20 @@
 					sourceType: ['album'],
 					success: (res) => {
 						console.log('chooseImage success, temp path is', res.tempFilePaths[0])
-						var imageSrc = res.tempFilePaths[0]
-						uni.uploadFile({
-							url: 'https://unidemo.dcloud.net.cn/upload',
-							filePath: imageSrc,
-							fileType: 'image',
-							name: 'data',
-							success: (res) => {
-								console.log('uploadImage success, res is:', res)
-								uni.showToast({
-									title: '上传成功',
-									icon: 'success',
-									duration: 1000
-								})
-								this.imageSrc = imageSrc
-							},
-							fail: (err) => {
-								console.log('uploadImage fail', err);
-								uni.showModal({
-									content: err.errMsg,
-									showCancel: false
-								});
-							}
-						});
+						var imageSrc = res.tempFilePaths[0];
+						this.imageSrc = imageSrc;
+						this.$service.schedule.ftpfileUpload({
+							imageSrc
+						}).then(data => {
+							uni.hideLoading();
+							this.url = data.data;
+						})
 					},
 					fail: (err) => {
 						console.log('chooseImage fail', err)
 					}
 				})
 			}
-
-
 		}
 	}
 </script>
@@ -118,9 +148,9 @@
 		margin: 20upx 0;
 
 		.img {
-			margin-top: 5upx;
-			width: 40upx;
-			height: 40upx;
+			margin-top: 0upx;
+			width: 50upx;
+			height: 50upx;
 		}
 
 		.name {
@@ -154,6 +184,11 @@
 		}
 		.img-b{
 			padding: 80upx;
+		}
+	}
+	.text{
+		.title{
+			margin-top: 40upx;
 		}
 	}
 </style>
