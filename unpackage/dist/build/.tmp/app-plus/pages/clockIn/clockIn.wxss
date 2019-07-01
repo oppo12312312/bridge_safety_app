@@ -20,7 +20,7 @@
   display: flex;
 }
 /* 伸缩性 */
-.fx1, .dbv1, .yangan .top .select {
+.fx1, .dbv1 {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   -ms-flex: 1;
@@ -88,7 +88,7 @@
 .yangan .popup .uni-mask, .yangan .popup .uni-popup {
   top: 160rpx;
 }
-.active:active, .yangan .list .uni-list-cell:active, .yangan .top .select:active {
+.active:active {
   background-color: #e4e4e4;
 }
 .meg-border {
@@ -130,19 +130,52 @@
   background-color: cadetblue;
 }
 page {
-  height: 100%;
+  min-height: 100%;
+  background-color: #F4F5F6;
 }
-.yangan {
-  height: 100%;
+.page-body {
+  padding: 20rpx;
 }
-.yangan .top .select {
-    text-align: center;
-    padding: 10rpx;
+.location {
+  margin: 20rpx 0;
 }
-.yangan .top .select .img {
-      top: 2rpx;
-      margin-left: 10rpx;
-      width: 24rpx;
-      height: 24rpx;
+.location .img {
+    margin-top: 0rpx;
+    width: 50rpx;
+    height: 50rpx;
+}
+.location .name {
+    margin-left: 4rpx;
+}
+.location .reset {
+    color: #007AFF;
+}
+.upload .title {
+  margin-bottom: 20rpx;
+}
+.upload .image {
+  width: 60rpx;
+  height: 60rpx;
+}
+.upload .image-up {
+  width: 220rpx;
+  height: 220rpx;
+}
+.upload .demo {
+  border: 1px dashed #c0ccda;
+  -webkit-border-radius: 6px;
+          border-radius: 6px;
+  background: #FFF;
+  width: 220rpx;
+}
+.upload .img-b {
+  padding: 80rpx;
+}
+.text .title {
+  margin-top: 40rpx;
+  margin-bottom: 20rpx;
+}
+.bu {
+  margin-top: 40rpx;
 }
 

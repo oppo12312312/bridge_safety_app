@@ -129,6 +129,9 @@
 .uni-grid-item-image:nth-of-type(3) {
   background-color: cadetblue;
 }
+page {
+  height: 100%;
+}
 .user-manage .uni-list {
   margin-bottom: 60rpx;
 }
@@ -139,7 +142,7 @@
     color: #999;
 }
 .user-manage .top {
-  height: 1200rpx;
+  height: 900rpx;
 }
 .user-manage .button {
   margin: 0 40rpx;

@@ -1,1 +1,1 @@
-<view>qrCode</view>
+<view><view class="uni-padding-wrap uni-common-mt"><view class="uni-form-item uni-column"><view class="title">设备编号</view><input class="uni-input" name="input" disabled="{{disabled}}" data-event-opts="{{[['input',[['__set_model',['','termCode','$event',[]]]]]]}}" value="{{termCode}}" bindinput="__e"/><view data-event-opts="{{[['tap',[['scanCode',['$event']]]]]}}" class="recode" bindtap="__e">重新扫码</view></view><button class="bu" type="primary" data-event-opts="{{[['tap',[['enter',['$event']]]]]}}" bindtap="__e">确认</button></view></view>

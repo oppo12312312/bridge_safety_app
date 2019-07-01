@@ -6,7 +6,8 @@
     "pages/qrCode/qrCode",
     "pages/index/yangan/yangan",
     "pages/index/yangan/detail",
-    "pages/user/editPassword/index"
+    "pages/user/editPassword/index",
+    "pages/clockIn/clockIn"
   ],
   "subPackages": [],
   "window": {
@@ -33,6 +34,12 @@
         "text": "扫码"
       },
       {
+        "pagePath": "pages/clockIn/clockIn",
+        "iconPath": "static/home/clockIn.png",
+        "selectedIconPath": "static/home/clockIn1.png",
+        "text": "打卡"
+      },
+      {
         "pagePath": "pages/user/user",
         "iconPath": "static/home/user.png",
         "selectedIconPath": "static/home/user1.png",
@@ -45,7 +52,7 @@
     "alwaysShowBeforeRender": true,
     "autoclose": false
   },
-  "appname": "uni-sj",
+  "appname": "gu-an-yun",
   "compilerVersion": "2.0.1",
   "usingComponents": {}
 }

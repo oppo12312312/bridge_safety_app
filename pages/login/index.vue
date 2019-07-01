@@ -70,6 +70,7 @@
 					"password": this.password,
 					"userName": this.userName
 				}).then(data => {
+
 					if (data.code === 0) {
 						scope.setUserInfo(data.msg);
 

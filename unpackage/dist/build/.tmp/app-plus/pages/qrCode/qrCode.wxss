@@ -1,0 +1,16 @@
+
+page {
+	background-color: #F4F5F6;
+}
+.uni-form-item .title {
+	padding: 10px 0;
+}
+.bu {
+	margin-top: 20rpx;
+	margin-bottom: 40rpx;
+}
+.recode {
+	color: #007AFF;
+	margin-top: 10rpx;
+}
+

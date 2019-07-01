@@ -44,7 +44,9 @@
 		}
         ,{
             "path" : "pages/clockIn/clockIn",
-            "style" : {}
+            "style" : {
+				"navigationBarTitleText": "考勤打卡"
+			}
         }
     ],
 	"globalStyle": {

@@ -1,5 +1,5 @@
 <template>
-	<view class="yangan">
+	<view class="yangan db v">
 		<view class="top db">
 			<view class="select" @click="showPopup('project')">
 				<text>{{checked.project.name}}</text>
@@ -11,10 +11,10 @@
 			</view>
 
 		</view>
-		<uni-popup class="popup" :show="popup" @hidePopup="hidePopup" position="top" type="top" mode="fixed">
+		<view  v-show="popup" class="fx1 db v">
 			<view class="uni-list">
 				<radio-group @change="radioChange">
-					<label class="uni-list-cell uni-list-cell-pd" v-for="(item, index) in items[this.activeName]" :key="item.value">
+					<label  class="uni-list-cell uni-list-cell-pd" v-for="(item, index) in items[this.activeName]" :key="item.value">
 						<view>{{item.name}}</view>
 						<view>
 							<radio :value="item.value" :checked="index === current" />
@@ -22,8 +22,8 @@
 					</label>
 				</radio-group>
 			</view>
-		</uni-popup>
-		<uni-list>
+		</view>
+		<uni-list v-show="!popup">
 			<uni-list-item v-for="item in list" :key="item.termId" @click="opanDetail(item)" :title="item.termName" />
 		</uni-list>
 
@@ -129,6 +129,7 @@
 			},
 			radioChange(value) {
 				debugger
+				this.hidePopup();
 				let val = value.detail.value;
 				let re = this.items[this.activeName].filter(item => {
 					return item.value === val;
@@ -177,7 +178,11 @@
 </script>
 
 <style lang="scss">
+	page {
+		height: 100%;
+	}
 	.yangan {
+		height: 100%;
 		.list {
 			.uni-list-cell {
 				@extend .active;

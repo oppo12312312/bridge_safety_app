@@ -92,6 +92,9 @@
 </script>
 
 <style lang="scss">
+	page {
+		height: 100%;
+	}
 	.user-manage {
 		.uni-list {
 			margin-bottom: 60upx;
@@ -106,7 +109,7 @@
 		}
 
 		.top {
-			height: 1200upx;
+			height: 900upx;
 		}
 
 		.button {
