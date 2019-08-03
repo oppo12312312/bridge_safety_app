@@ -9,7 +9,6 @@
     "pages/user/editPassword/index",
     "pages/clockIn/clockIn"
   ],
-  "subPackages": [],
   "window": {
     "navigationBarTitleText": "uni-app",
     "navigationBarBackgroundColor": "black",
@@ -53,6 +52,6 @@
     "autoclose": false
   },
   "appname": "gu-an-yun",
-  "compilerVersion": "2.0.1",
+  "compilerVersion": "2.1.3",
   "usingComponents": {}
 }

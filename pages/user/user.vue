@@ -78,12 +78,13 @@
 					userName: '',
 				    keep: false
 				})
-				uni.navigateTo({
+				uni.reLaunch({
 					url: '/pages/login/index'
 				});
 			}
 		},
 		onLoad() {
+			debugger
 			const value = uni.getStorageSync('userInfo');
 			this.userInfo = value.user;
 			this.depInfo = value.depInfo;

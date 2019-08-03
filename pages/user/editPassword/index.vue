@@ -81,7 +81,7 @@
 						userName: '',
 						keep: false
 					})
-					uni.navigateTo({
+					uni.reLaunch({
 						url: '/pages/login/index'
 					});
 				})

@@ -63,13 +63,6 @@
 				longitude: 114.31,
 			}
 		},
-		onLoad() {
-			// this.covers[0].latitude =  38.909;
-			// this.latitude =  38.909;
-			this.getLocation();
-			debugger
-			
-		},
 		computed:{
 			userId(){
 				const userInfo = uni.getStorageSync('userInfo');
@@ -90,7 +83,13 @@
 				}]
 			}
 		},
+		
 		methods: {
+			onShow() {
+				this.imageSrc = '';
+				this.text = "";
+				this.getLocation();
+			},
 			enter(){
 				if(this.url === ""){
 					uni.showModal({
@@ -142,15 +141,14 @@
 						map.moveToLocation()
 						scope.longitude = res.longitude+0.00001;
 						scope.latitude = res.latitude;
-						scope.locationName = res.address.city +" "+res.address.district + " " + res.address.street
+						scope.locationName = res.address.city +" "+res.address.district 
+						+ " " + res.address.street+ " "+ res.address.poiName|| ''
 					}
 				});
 			},
 			chooseImage: function() {
 				uni.chooseImage({
 					count: 1,
-					sizeType: ['compressed'],
-					sourceType: ['album'],
 					success: (res) => {
 						console.log('chooseImage success, temp path is', res.tempFilePaths[0])
 						var imageSrc = res.tempFilePaths[0];

@@ -82,8 +82,7 @@
     width: 22px !important;
     padding: 11px !important;
     height: 22px !important;
-    -webkit-border-radius: 22px !important;
-            border-radius: 22px !important;
+    border-radius: 22px !important;
 }
 .yangan .popup .uni-mask, .yangan .popup .uni-popup {
   top: 160rpx;
@@ -129,6 +128,12 @@
 .uni-grid-item-image:nth-of-type(3) {
   background-color: cadetblue;
 }
+.fn12 .uni-input {
+  font-size: 12px;
+}
+.ov-hi {
+  overflow: hidden;
+}
 .content {
   background: #f1f1f1;
 }
@@ -151,8 +156,7 @@
       width: 80rpx;
       margin: 0 auto;
       background: #e4e4e4;
-      -webkit-border-radius: 10rpx;
-              border-radius: 10rpx;
+      border-radius: 10rpx;
       margin-bottom: 6rpx;
 }
 .content .count .number .text {
@@ -182,8 +186,7 @@
       width: 22px !important;
       padding: 11px !important;
       height: 22px !important;
-      -webkit-border-radius: 22px !important;
-              border-radius: 22px !important;
+      border-radius: 22px !important;
 }
 .content .menu-1 {
     padding-bottom: 0;

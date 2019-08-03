@@ -34,7 +34,17 @@
 		}, {
 			"path": "pages/index/yangan/detail",
 			"style": {
-				"navigationBarTitleText": "NB烟感详情"
+				"navigationBarTitleText": "NB烟感",
+				"app-plus": {
+                    "titleNView": {
+                        "buttons": [ //原生标题栏按钮配置,
+                            {
+								"fontSize":"16px",
+                                "text": "列表" //原生标题栏增加分享按钮，点击事件可通过页面的 onNavigationBarButtonTap 函数进行监听
+                            }
+                        ]
+                    }
+                }
 			}
 		}, {
 			"path": "pages/user/editPassword/index",

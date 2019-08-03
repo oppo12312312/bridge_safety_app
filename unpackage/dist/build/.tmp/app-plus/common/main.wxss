@@ -82,8 +82,7 @@
     width: 22px !important;
     padding: 11px !important;
     height: 22px !important;
-    -webkit-border-radius: 22px !important;
-            border-radius: 22px !important;
+    border-radius: 22px !important;
 }
 .yangan .popup .uni-mask, .yangan .popup .uni-popup {
   top: 160rpx;
@@ -128,6 +127,12 @@
 }
 .uni-grid-item-image:nth-of-type(3) {
   background-color: cadetblue;
+}
+.fn12 .uni-input {
+  font-size: 12px;
+}
+.ov-hi {
+  overflow: hidden;
 }
 /*每个页面公共css */
 @font-face {
@@ -394,8 +399,7 @@ radio-group label, checkbox-group label {
   display: inline-block;
   padding: 3px 6px;
   color: #333;
-  -webkit-border-radius: 100px;
-          border-radius: 100px;
+  border-radius: 100px;
   background-color: rgba(0, 0, 0, 0.15);
 }
 .uni-badge.uni-badge-inverted {
@@ -464,8 +468,7 @@ radio-group label, checkbox-group label {
 /*卡片视图 */
 .uni-card {
   background: #fff;
-  -webkit-border-radius: 8rpx;
-          border-radius: 8rpx;
+  border-radius: 8rpx;
   margin: 20rpx 0;
   position: relative;
   -webkit-box-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.3);
@@ -1277,7 +1280,6 @@ radio-group label, checkbox-group label {
       -ms-flex: 1;
           flex: 1;
   width: 100%;
-  height: -webkit-calc(100% - 100rpx);
   height: calc(100% - 100rpx);
 }
 .uni-tab-bar-loading {
@@ -1315,8 +1317,7 @@ radio-group label, checkbox-group label {
 .uni-comment-face {
   width: 70rpx;
   height: 70rpx;
-  -webkit-border-radius: 100%;
-          border-radius: 100%;
+  border-radius: 100%;
   margin-right: 20rpx;
   -webkit-flex-shrink: 0;
       -ms-flex-negative: 0;
@@ -1325,8 +1326,7 @@ radio-group label, checkbox-group label {
 }
 .uni-comment-face image {
   width: 100%;
-  -webkit-border-radius: 100%;
-          border-radius: 100%;
+  border-radius: 100%;
 }
 .uni-comment-body {
   width: 100%;
@@ -1377,8 +1377,7 @@ radio-group label, checkbox-group label {
   font-size: 24rpx;
   line-height: 28rpx;
   padding: 5rpx 20rpx;
-  -webkit-border-radius: 30rpx;
-          border-radius: 30rpx;
+  border-radius: 30rpx;
   color: #333 !important;
   margin: 0 10rpx;
 }
@@ -1479,8 +1478,7 @@ radio-group label, checkbox-group label {
   background-color: #ff3333;
   color: #ffffff;
   padding: 0 10rpx;
-  -webkit-border-radius: 5rpx;
-          border-radius: 5rpx;
+  border-radius: 5rpx;
 }
 /* timeline */
 .uni-timeline {
@@ -1531,8 +1529,7 @@ radio-group label, checkbox-group label {
   width: 30rpx;
   height: 30rpx;
   top: 15rpx;
-  -webkit-border-radius: 50%;
-          border-radius: 50%;
+  border-radius: 50%;
   background-color: #bbb;
 }
 .uni-timeline-item-divider::before,

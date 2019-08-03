@@ -1,32 +1,18 @@
 <template>
-	<view class="yangan db v">
-		<view class="top db">
-			<view class="select" @click="showPopup('project')">
-				<text>{{checked.project.name}}</text>
-				<image class="img" src="../../../static/yangan/down.png"></image>
+	<view class="yangan">
+		<view class="top db uni-list-cell">
+			<view class="db mutil-select">
+				<view class="picker-v db">
+					<checkLocation @change="pickerChange" class='fn12'></checkLocation>
+					<image class="img" src="../../../static/yangan/down.png"></image>
+				</view>
 			</view>
-			<view class="select" @click="showPopup('device')">
-				<text>{{checked.device.name}}</text>
-				<image class="img" src="../../../static/yangan/down.png"></image>
-			</view>
-
+			<selects :items="optDevice"></selects>
+			<selects @change="changeStatus" :items="optStatus"></selects>
 		</view>
-		<view  v-show="popup" class="fx1 db v">
-			<view class="uni-list">
-				<radio-group @change="radioChange">
-					<label  class="uni-list-cell uni-list-cell-pd" v-for="(item, index) in items[this.activeName]" :key="item.value">
-						<view>{{item.name}}</view>
-						<view>
-							<radio :value="item.value" :checked="index === current" />
-						</view>
-					</label>
-				</radio-group>
-			</view>
-		</view>
-		<uni-list v-show="!popup">
+		<scroll-view  scroll-y="true" class="scroll-Y list-t" >
 			<uni-list-item v-for="item in list" :key="item.termId" @click="opanDetail(item)" :title="item.termName" />
-		</uni-list>
-
+		</scroll-view>
 
 	</view>
 </template>
@@ -36,6 +22,9 @@
 	import vUniIcon from "@/components/uni-icon/uni-icon.vue"
 	import uniList from '@/components/uni-list/uni-list.vue'
 	import uniListItem from '@/components/uni-list-item/uni-list-item.vue'
+	import selects from '@/pages/index/yangan/selects.vue'
+	import checkLocation from '@/pages/qrCode/checkLocation.vue'
+
 
 
 	export default {
@@ -44,136 +33,96 @@
 			uniPopup,
 			vUniIcon,
 			uniList,
-			uniListItem
+			uniListItem,
+			selects,
+			checkLocation
 		},
 		data() {
 			return {
-				popup: false,
-				current: '-1',
-				activeName: 'project',
-				list: [{
-					name: '查看详情'
+				list: [],
+				termComstatus: null,
+				optStatus: [{
+					name: '全部状态',
+					value: null
 				}, {
-					name: '查看详情'
+					name: '正常',
+					value: '1'
+				}, {
+					name: '报警',
+					value: '2'
+				}, {
+					name: '故障',
+					value: '3'
 				}],
-				items: {
-					project: [{
-						name: '全部项目',
-						value: '1'
-					}, {
-						name: '项目',
-						value: '3'
-					}],
-					device: [{
-						name: '全部设备',
-						value: null
-					},{
-						name: '正常',
-						value: '1'
-					}, {
-						name: '报警',
-						value: '2'
-					}, {
-						name: '故障',
-						value: '3'
-					}],
-					location: [{
-						name: '全部结构',
-						value: '1'
-					}]
-				},
-				checked: {
-					project: {
-						name: '全部项目',
-						projectId: "null"
-					},
-					device: {
-						name: '全部设备',
-						value: "null"
-					},
-					location: {
-						name: '全部位置',
-						value: "null"
-					},
-				},
-				all: {
-					project: {
-						name: '全部项目',
-						value: null
-					},
-					device: {
-						name: '全部结构',
-						value: null
-					}
-				}
+				optDevice: [{
+					name: '全部设备',
+					value: null
+				}],
+				multiValue: [null, null, null]
 			}
 		},
-		computed:{
-			orgId(){
+		computed: {
+			orgId() {
 				const value = uni.getStorageSync('userInfo');
 				return value.depInfo.orgId;
+			},
+			opt() {
+				return {
+					orgId: this.orgId,
+					projectId: this.multiValue[0],
+					strucunitId: this.multiValue[1],
+					crossSectionId: this.multiValue[2],
+					termComstatus: this.termComstatus
+				}
 			}
+		},
+		mounted() {
+			this.getDevice();
 		},
 		methods: {
-			showPopup(value) {
-				if(this.activeName === value){
-					this.popup = !this.popup;
-				}else{
-					this.popup = true;
-				}
-				this.activeName = value;
-				
+			changeStatus(value) {
+				this.termComstatus = value;
+				this.getList();
 			},
-			hidePopup() {
-				this.popup = false;
+			onShow() {
+				this.getList();
 			},
-			radioChange(value) {
-				debugger
-				this.hidePopup();
-				let val = value.detail.value;
-				let re = this.items[this.activeName].filter(item => {
-					return item.value === val;
+			changeSelect() {},
+			getDevice() {
+				this.$service.qrCode.findTermTypeAll().then(re => {
+					re.msg.forEach(item => {
+						if (item.termTypeName && item.termtypeId) {
+							this.optDevice.push({
+								name: item.termTypeName,
+								value: item.termtypeId
+							})
+						}
+
+					})
 				})
-				this.checked[this.activeName] = re[0];
-				this.getList()
+			},
+			pickerChange(values) {
+				this.multiValue = values;
+				this.getList();
 			},
 			opanDetail(item) {
-				
-				uni.navigateTo({
-					url: "./detail?item=" + JSON.stringify(item)
+
+				uni.navigateBack({
+					url: `./detail?item=${JSON.stringify(item)}&opt= ${JSON.stringify(this.opt)}`
+				})
+				uni.setStorageSync('yangan', {
+					item: item,
+					opt: this.opt
 				})
 			},
-			getProject() {
-				this.$service.cnsmogsensor.findProjectSelect({
-					orgId: this.orgId
-				}).then(data => {
-					this.initProject(data.msg);
-				})
-			},
-			initProject(data) {
-				debugger
-				data.forEach(item => {
-					item.value = item.projectId+'';
-					item.name = item.projectName;
-				})
-				data.unshift(this.all.project);
-				this.items.project = data;
-			},
-			getList(){
-				this.$service.cnsmogsensor.cnSmogSensorList({
-					orgId: this.orgId,
-					projectId: Number(this.checked.project.value) || null,
-					termComstatus: Number(this.checked.device.value)|| null
-				}).then(data => {
+			getList() {
+				this.$service.cnsmogsensor.cnSmogSensorList(this.opt).then(data => {
 					this.list = data.msg.terminals;
 				})
-			}
-		},
-		onLoad() {
-			this.getProject();
-			this.getList();
+			},
 
-		}
+		},
+
 	}
 </script>
 
@@ -181,8 +130,17 @@
 	page {
 		height: 100%;
 	}
+
+	.picker-v {
+		margin: 0 auto;
+	}
+	.list-t{
+		height: calc(100% - 44px);
+	}
+
 	.yangan {
 		height: 100%;
+
 		.list {
 			.uni-list-cell {
 				@extend .active;
@@ -190,20 +148,40 @@
 		}
 
 		.top {
+			&:after {
+				left: 0;
+			}
+
+			.mutil-select {
+				width: 214px;
+				text-align: center;
+				padding: 10upx;
+				@extend .active;
+
+			}
+
 			.select {
 				text-align: center;
 				padding: 10upx;
 				@extend .fx1;
 				@extend .active;
 
-				.img {
-					top: 2upx;
-					margin-left: 10upx;
-					width: 24upx;
-					height: 24upx;
-				}
+
+			}
+
+			.img {
+				top: 2upx;
+				margin-left: 10upx;
+				margin-top: 26upx;
+				width: 24upx;
+				height: 24upx;
 			}
 		}
 
+	}
+
+	.uni-input {
+		padding: 7px 0px;
+		font-size: 24upx;
 	}
 </style>

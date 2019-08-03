@@ -1,0 +1,1 @@
+<picker mode="multiSelector" value="{{multiIndex}}" range="{{multiArray}}" data-event-opts="{{[['change',[['change',['$event']]]],['columnchange',[['bindMultiPickerColumnChange',['$event']]]]]}}" bindchange="__e" bindcolumnchange="__e"><view class="ov-hi uni-input">{{multiArray[0][multiIndex[0]]+"，"+multiArray[1][multiIndex[1]]+"，"+multiArray[2][multiIndex[2]]}}</view></picker>

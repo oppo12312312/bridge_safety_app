@@ -76,7 +76,7 @@
 					},
 					{
 						image: '../../static/menu/yangan.png',
-						"path": "yangan/yangan",
+						"path": "yangan/detail",
 						text: '烟感'
 					},
 

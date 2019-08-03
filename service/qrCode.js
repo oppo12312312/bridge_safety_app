@@ -4,5 +4,9 @@ export default {
 		return await base.get('/scancode/addTerminalrepair', {
 			termCode: param.termCode
 		});
+	},
+	async findTermTypeAll(param) {
+		return await base.get('/scancode/findTermTypeAll');
 	}
+
 }

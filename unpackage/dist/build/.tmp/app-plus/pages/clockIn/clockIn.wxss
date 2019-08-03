@@ -82,8 +82,7 @@
     width: 22px !important;
     padding: 11px !important;
     height: 22px !important;
-    -webkit-border-radius: 22px !important;
-            border-radius: 22px !important;
+    border-radius: 22px !important;
 }
 .yangan .popup .uni-mask, .yangan .popup .uni-popup {
   top: 160rpx;
@@ -129,6 +128,12 @@
 .uni-grid-item-image:nth-of-type(3) {
   background-color: cadetblue;
 }
+.fn12 .uni-input {
+  font-size: 12px;
+}
+.ov-hi {
+  overflow: hidden;
+}
 page {
   min-height: 100%;
   background-color: #F4F5F6;
@@ -163,8 +168,7 @@ page {
 }
 .upload .demo {
   border: 1px dashed #c0ccda;
-  -webkit-border-radius: 6px;
-          border-radius: 6px;
+  border-radius: 6px;
   background: #FFF;
   width: 220rpx;
 }

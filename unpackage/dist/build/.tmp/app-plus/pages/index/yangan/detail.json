@@ -1,5 +1,13 @@
 {
-  "navigationBarTitleText": "NB烟感详情",
+  "navigationBarTitleText": "NB烟感",
+  "titleNView": {
+    "buttons": [
+      {
+        "fontSize": "16px",
+        "text": "列表"
+      }
+    ]
+  },
   "usingComponents": {
     "mpvue-echarts": "/components/mpvue-echarts/src/echarts"
   }

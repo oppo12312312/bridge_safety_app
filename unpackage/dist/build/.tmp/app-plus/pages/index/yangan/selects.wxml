@@ -1,0 +1,1 @@
+<view class="select db"><view class="picker-v db"><picker value="{{active}}" range="{{range}}" data-event-opts="{{[['change',[['change',['$event']]]]]}}" bindchange="__e"><view class="ov-hi uni-input">{{range[active]}}</view></picker><image class="img" src="../../../static/yangan/down.png"></image></view></view>

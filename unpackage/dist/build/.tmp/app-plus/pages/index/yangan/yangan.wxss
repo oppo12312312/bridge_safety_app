@@ -82,13 +82,12 @@
     width: 22px !important;
     padding: 11px !important;
     height: 22px !important;
-    -webkit-border-radius: 22px !important;
-            border-radius: 22px !important;
+    border-radius: 22px !important;
 }
 .yangan .popup .uni-mask, .yangan .popup .uni-popup {
   top: 160rpx;
 }
-.active:active, .yangan .list .uni-list-cell:active, .yangan .top .select:active {
+.active:active, .yangan .list .uni-list-cell:active, .yangan .top .mutil-select:active, .yangan .top .select:active {
   background-color: #e4e4e4;
 }
 .meg-border {
@@ -129,20 +128,45 @@
 .uni-grid-item-image:nth-of-type(3) {
   background-color: cadetblue;
 }
+.fn12 .uni-input {
+  font-size: 12px;
+}
+.ov-hi {
+  overflow: hidden;
+}
 page {
   height: 100%;
 }
+.picker-v {
+  margin: 0 auto;
+}
+.list-t {
+  height: calc(100% - 44px);
+}
 .yangan {
   height: 100%;
+}
+.yangan .top:after {
+    left: 0;
+}
+.yangan .top .mutil-select {
+    width: 214px;
+    text-align: center;
+    padding: 10rpx;
 }
 .yangan .top .select {
     text-align: center;
     padding: 10rpx;
 }
-.yangan .top .select .img {
-      top: 2rpx;
-      margin-left: 10rpx;
-      width: 24rpx;
-      height: 24rpx;
+.yangan .top .img {
+    top: 2rpx;
+    margin-left: 10rpx;
+    margin-top: 26rpx;
+    width: 24rpx;
+    height: 24rpx;
+}
+.uni-input {
+  padding: 7px 0px;
+  font-size: 24rpx;
 }
 

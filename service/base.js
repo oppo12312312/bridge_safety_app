@@ -1,5 +1,6 @@
 let baseUrl = "http://39.97.111.250:8181";
 const code = '登录失效';
+let haveModal = false;
 export default {
 	baseUrl,
 	getHeader() {
@@ -27,19 +28,33 @@ export default {
 			data: param
 		});
 		this.returnLogin(res);
-		debugger
 		return res.data;
 	},
 	returnLogin(res) {
-		if (res.data.msg === code) {
-			uni.setStorageSync('userInfo', {
-				password: '',
-				userName: '',
-				keep: false
-			})
-			uni.navigateTo({
-				url: '/pages/login/index'
-			});
+		debugger
+		let code = res.data.code;
+		if (code === 300 || code === 200) {
+			debugger
+			if (!haveModal) {
+				uni.showModal({
+					content: res.data.msg,
+					showCancel: false,
+					success:function(){
+						haveModal = false;
+						uni.setStorageSync('userInfo', {
+							password: '',
+							userName: '',
+							keep: false
+						})
+						uni.redirectTo({
+							url: '/pages/login/index'
+						});
+					}
+				});
+				haveModal = true;
+			}
+
+
 		}
 
 	}
