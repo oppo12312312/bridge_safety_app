@@ -1,4 +1,6 @@
 {
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#000000",
   "navigationBarTitleText": "扫码",
   "usingComponents": {
     "check-location": "/pages/qrCode/checkLocation"

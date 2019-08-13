@@ -136,7 +136,7 @@
 }
 page {
   min-height: 100%;
-  background-color: #F4F5F6;
+  background-color: #f4f5f6;
 }
 .page-body {
   padding: 20rpx;
@@ -153,7 +153,7 @@ page {
     margin-left: 4rpx;
 }
 .location .reset {
-    color: #007AFF;
+    color: #007aff;
 }
 .upload .title {
   margin-bottom: 20rpx;
@@ -169,7 +169,7 @@ page {
 .upload .demo {
   border: 1px dashed #c0ccda;
   border-radius: 6px;
-  background: #FFF;
+  background: #fff;
   width: 220rpx;
 }
 .upload .img-b {

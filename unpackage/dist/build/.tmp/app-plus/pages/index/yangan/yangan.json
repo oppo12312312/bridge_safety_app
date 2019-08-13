@@ -1,4 +1,6 @@
 {
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#000000",
   "navigationBarTitleText": "NB烟感列表",
   "usingComponents": {
     "uni-popup": "/components/uni-popup-i/uni-popup",

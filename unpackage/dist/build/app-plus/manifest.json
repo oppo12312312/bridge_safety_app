@@ -44,7 +44,7 @@
     "statusbar": {
       "immersed": "supportedDevice",
       "style": "light",
-      "background": "black"
+      "background": "#FFFFFF"
     },
     "usingComponents": true,
     "distribute": {

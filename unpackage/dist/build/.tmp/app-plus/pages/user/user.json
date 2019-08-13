@@ -1,4 +1,6 @@
 {
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#000000",
   "navigationBarTitleText": "用户管理",
   "usingComponents": {
     "uni-collapse": "/components/uni-collapse/uni-collapse",
