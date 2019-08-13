@@ -4,19 +4,22 @@
 			"path": "pages/login/index",
 			"style": {
 				"navigationBarTitleText": "登录",
-				"navigationBarTextStyle": "black",
-				"navigationBarBackgroundColor": "#FFFFFF"
-
+				"navigationBarTextStyle": "#FFFFFF",
+				"navigationBarBackgroundColor": "#000000"
 			}
 		},
 		{
 			"path": "pages/index/index",
 			"style": {
+				"navigationBarTextStyle": "#FFFFFF",
+				"navigationBarBackgroundColor": "#000000",
 				"navigationBarTitleText": "主页"
 			}
 		}, {
 			"path": "pages/user/user",
 			"style": {
+				"navigationBarTextStyle": "#FFFFFF",
+				"navigationBarBackgroundColor": "#000000",
 				"navigationBarTitleText": "用户管理"
 			}
 		}
@@ -24,51 +27,60 @@
 		, {
 			"path": "pages/qrCode/qrCode",
 			"style": {
+				"navigationBarTextStyle": "#FFFFFF",
+				"navigationBarBackgroundColor": "#000000",
 				"navigationBarTitleText": "扫码"
 			}
 		}, {
 			"path": "pages/index/yangan/yangan",
 			"style": {
+				"navigationBarTextStyle": "#FFFFFF",
+				"navigationBarBackgroundColor": "#000000",
 				"navigationBarTitleText": "NB烟感列表"
 			}
 		}, {
 			"path": "pages/index/yangan/detail",
 			"style": {
 				"navigationBarTitleText": "NB烟感",
+				"navigationBarTextStyle": "#FFFFFF",
+				"navigationBarBackgroundColor": "#000000",
 				"app-plus": {
-                    "titleNView": {
-                        "buttons": [ //原生标题栏按钮配置,
-                            {
-								"fontSize":"16px",
-                                "text": "列表" //原生标题栏增加分享按钮，点击事件可通过页面的 onNavigationBarButtonTap 函数进行监听
-                            }
-                        ]
-                    }
-                }
+					"titleNView": {
+						"buttons": [ //原生标题栏按钮配置,
+							{
+								"fontSize": "16px",
+								"text": "列表" //原生标题栏增加分享按钮，点击事件可通过页面的 onNavigationBarButtonTap 函数进行监听
+							}
+						]
+					}
+				}
 			}
 		}, {
 			"path": "pages/user/editPassword/index",
 			"style": {
+				"navigationBarTextStyle": "#FFFFFF",
+				"navigationBarBackgroundColor": "#000000",
 				"navigationBarTitleText": "修改密码"
 			}
-		}
-        ,{
-            "path" : "pages/clockIn/clockIn",
-            "style" : {
+		}, {
+			"path": "pages/clockIn/clockIn",
+			"style": {
+				"navigationBarTextStyle": "#FFFFFF",
+				"navigationBarBackgroundColor": "#000000",
 				"navigationBarTitleText": "考勤打卡"
 			}
-        }
-    ],
+		}
+	],
 	"globalStyle": {
-		// "navigationBarTextStyle": "#ffffff",
+		"navigationBarTextStyle": "#000000",
 		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "black",
+		"navigationBarBackgroundColor": "#FFFFFF",
 		"backgroundColor": "#F8F8F8"
 	},
 	"tabBar": {
 		"color": "#7A7E83",
 		"selectedColor": "#007AFF",
-		"borderStyle": "black",
+		"borderStyle": "#000000",
 		"backgroundColor": "#F8F8F8",
 		"list": [{
 			"pagePath": "pages/index/index",
@@ -80,12 +92,12 @@
 			"iconPath": "static/home/shaoma.png",
 			"selectedIconPath": "static/home/shaoma1.png",
 			"text": "扫码"
-		},  {
+		}, {
 			"pagePath": "pages/clockIn/clockIn",
 			"iconPath": "static/home/clockIn.png",
 			"selectedIconPath": "static/home/clockIn1.png",
 			"text": "打卡"
-		},{
+		}, {
 			"pagePath": "pages/user/user",
 			"iconPath": "static/home/user.png",
 			"selectedIconPath": "static/home/user1.png",

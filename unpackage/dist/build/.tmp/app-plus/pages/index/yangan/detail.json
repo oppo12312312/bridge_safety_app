@@ -1,5 +1,7 @@
 {
   "navigationBarTitleText": "NB烟感",
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#000000",
   "titleNView": {
     "buttons": [
       {

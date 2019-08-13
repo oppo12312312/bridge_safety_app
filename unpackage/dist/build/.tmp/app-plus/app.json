@@ -10,14 +10,15 @@
     "pages/clockIn/clockIn"
   ],
   "window": {
+    "navigationBarTextStyle": "white",
     "navigationBarTitleText": "uni-app",
-    "navigationBarBackgroundColor": "black",
+    "navigationBarBackgroundColor": "#FFFFFF",
     "backgroundColor": "#F8F8F8"
   },
   "tabBar": {
     "color": "#7A7E83",
     "selectedColor": "#007AFF",
-    "borderStyle": "black",
+    "borderStyle": "#000000",
     "backgroundColor": "#F8F8F8",
     "list": [
       {
