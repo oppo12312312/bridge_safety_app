@@ -75,91 +75,164 @@
 		value: 20,
 		name: '广州'
 	}];
+// 
+// 	let lineOption = {
+// 		animation: false,
+// 		color: ['#37A2DA', '#9FE6B8'],
+// 		grid: {
+// 			x: 35,
+// 			x2: 10,
+// 			y: 20,
+// 			y2: 25
+// 		},
+// 		calculable: false,
+// 		xAxis: [{
+// 			type: 'category',
+// 			data: []
+// 		}],
+// 		yAxis: [{
+// 			type: 'value',
+// 			splitArea: {
+// 				show: true
+// 			}
+// 		}],
+// 		series: [{
+// 			name: '值',
+// 			type: 'line',
+// 			data: []
+// 		}]
+// 	};
+// 	let pointOpt = {
+// 		xAxis: [{
+// 			type: 'value',
+// 			axisLabel: {
+// 				formatter(value) {
+// 					let re = '';
+// 					value = value;
+// 					switch (value) {
+// 						case 1:
+// 							re = "一"
+// 							break;
+// 						case 2:
+// 							re = "二"
+// 							break;
+// 						case 3:
+// 							re = "三"
+// 							break;
+// 						case 4:
+// 							re = "四"
+// 							break;
+// 						case 5:
+// 							re = "五"
+// 							break;
+// 						case 6:
+// 							re = "六"
+// 							break;
+// 						case 7:
+// 							re = "天"
+// 							break;
+// 						default:
+// 							break;
+// 					}
+// 					if (re) {
+// 						return `星期${re}`
+// 					} else {
+// 						return "";
+// 					}
+// 
+// 				}
+// 			}
+// 		}],
+// 		yAxis: {},
+// 
+// 		series: [{
+// 			symbolSize: 20,
+// 			data: [
+// 				// [0, 3.04],
+// 				[1, 8.04],
+// 				[2, 6.95],
+// 				[3, 4.95],
+// 				[4, 6.95],
+// 				[5, 8.95],
+// 				[6, 5.95],
+// 				[7, 2.95]
+// 			],
+// 			type: 'scatter'
+// 		}]
+// 	}
 
-	let lineOption = {
-		animation: false,
-		color: ['#37A2DA', '#9FE6B8'],
-		grid: {
-			x: 35,
-			x2: 10,
-			y: 20,
-			y2: 25
-		},
-		calculable: false,
-		xAxis: [{
-			type: 'category',
-			data: []
-		}],
-		yAxis: [{
-			type: 'value',
-			splitArea: {
-				show: true
-			}
-		}],
-		series: [{
-			name: '值',
-			type: 'line',
-			data: []
-		}]
-	};
-	let pointOpt = {
-		xAxis: [{
-			type: 'value',
-			axisLabel: {
-				formatter(value) {
-					let re = '';
-					value = value;
-					switch (value) {
-						case 1:
-							re = "一"
-							break;
-						case 2:
-							re = "二"
-							break;
-						case 3:
-							re = "三"
-							break;
-						case 4:
-							re = "四"
-							break;
-						case 5:
-							re = "五"
-							break;
-						case 6:
-							re = "六"
-							break;
-						case 7:
-							re = "天"
-							break;
-						default:
-							break;
-					}
-					if (re) {
-						return `星期${re}`
-					} else {
-						return "";
-					}
+var base = +new Date(1968, 9, 3);
+var oneDay = 24 * 3600 * 1000;
+var date = [];
 
-				}
-			}
-		}],
-		yAxis: {},
+var data = [Math.random() * 3];
 
-		series: [{
-			symbolSize: 20,
-			data: [
-				// [0, 3.04],
-				[1, 8.04],
-				[2, 6.95],
-				[3, 4.95],
-				[4, 6.95],
-				[5, 8.95],
-				[6, 5.95],
-				[7, 2.95]
-			],
-			type: 'scatter'
-		}]
-	}
+for (var i = 1; i < 20000; i++) {
+    var now = new Date(base += oneDay);
+    date.push([now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/'));
+    data.push(Math.round((Math.random() -0.1) * 2 + data[i - 1]));
+}
+
+var option = {
+    tooltip: {
+        trigger: 'axis',
+        position: function (pt) {
+            return [pt[0], '10%'];
+        }
+    },
+    title: {
+        left: 'center',
+        text: '大数据量面积图',
+    },
+    toolbox: {
+        feature: {
+            dataZoom: {
+                yAxisIndex: 'none'
+            },
+            restore: {},
+            saveAsImage: {}
+        }
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: false,
+        data: date
+    },
+    yAxis: {
+        type: 'value',
+        boundaryGap: [0, '100%']
+    },
+    dataZoom: [{
+        type: 'inside',
+        start: 0,
+        end: 10
+    }, {
+        start: 0,
+        end: 10,
+        handleIcon: 'M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4v1.3h1.3v-1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7V23h6.6V24.4z M13.3,19.6H6.7v-1.4h6.6V19.6z',
+        handleSize: '80%',
+        handleStyle: {
+            color: '#fff',
+            shadowBlur: 3,
+            shadowColor: 'rgba(0, 0, 0, 0.6)',
+            shadowOffsetX: 2,
+            shadowOffsetY: 2
+        }
+    }],
+    series: [
+        {
+            name:'模拟数据',
+            type:'line',
+            smooth:true,
+            symbol: 'none',
+            sampling: 'average',
+            itemStyle: {
+                color: 'rgb(255, 70, 131)'
+            },
+            data: data
+        }
+    ]
+};
 
 	export default {
 		data() {
@@ -234,8 +307,8 @@
 				})
 			},
 			format(data) {
-				lineOption.series[0].data = [1, 4, 3, 6, 7];
-				lineOption.xAxis[0].data = ['07-12', '07-13', '07-14', '07-15'];
+				// lineOption.series[0].data = [1, 4, 3, 6, 7];
+				// lineOption.xAxis[0].data = ['07-12', '07-13', '07-14', '07-15'];
 				// data.forEach(item => {
 				// 	lineOption.series[0].data.push(Number(item.alarmLevel));
 				// 	lineOption.xAxis[0].data.push(item.updateTime.slice(5, 16))
@@ -254,7 +327,7 @@
 					height: height
 				})
 				canvas.setChart(lineChart)
-				lineChart.setOption(pointOpt)
+				lineChart.setOption(option)
 				// this.$refs.lineChart.setChart(lineChart)
 			}
 		},
