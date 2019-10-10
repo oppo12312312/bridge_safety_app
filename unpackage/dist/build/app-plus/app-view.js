@@ -1067,7 +1067,7 @@ Z(z[1])
 Z(z[1])
 Z(z[1])
 Z(z[0])
-Z([3,'ec-canvas data-v-3f18e7b8'])
+Z([3,'ec-canvas data-v-4d0decba'])
 Z([[4],[[5],[[5],[[5],[[5],[[4],[[5],[[5],[1,'touchstart']],[[4],[[5],[[4],[[5],[[5],[1,'touchStart']],[[4],[[5],[1,'$event']]]]]]]]]],[[4],[[5],[[5],[1,'touchmove']],[[4],[[5],[[4],[[5],[[5],[1,'touchMove']],[[4],[[5],[1,'$event']]]]]]]]]],[[4],[[5],[[5],[1,'touchend']],[[4],[[5],[[4],[[5],[[5],[1,'touchEnd']],[[4],[[5],[1,'$event']]]]]]]]]],[[4],[[5],[[5],[1,'error']],[[4],[[5],[[4],[[5],[[5],[1,'error']],[[4],[[5],[1,'$event']]]]]]]]]]])
 Z(z[0])
 })(__WXML_GLOBAL__.ops_cached.$gwx_1);return __WXML_GLOBAL__.ops_cached.$gwx_1
@@ -2719,7 +2719,7 @@ setCssToHead([])();setCssToHead([[2,0]],undefined,{path:"./app.wxss"})();
 __wxAppCode__['app.wxss']=setCssToHead([[2,0]],undefined,{path:"./app.wxss"});    
 __wxAppCode__['app.wxml']=$gwx('./app.wxml');
 
-__wxAppCode__['components/mpvue-echarts/src/echarts.wxss']=setCssToHead([".",[1],"ec-canvas.",[1],"data-v-3f18e7b8 { width: 100%; height: 100%; -webkit-box-flex: 1; -webkit-flex: 1; -ms-flex: 1; flex: 1; }\n",],undefined,{path:"./components/mpvue-echarts/src/echarts.wxss"});    
+__wxAppCode__['components/mpvue-echarts/src/echarts.wxss']=setCssToHead([".",[1],"ec-canvas.",[1],"data-v-4d0decba { width: 100%; height: 100%; -webkit-box-flex: 1; -webkit-flex: 1; -ms-flex: 1; flex: 1; }\n",],undefined,{path:"./components/mpvue-echarts/src/echarts.wxss"});    
 __wxAppCode__['components/mpvue-echarts/src/echarts.wxml']=$gwx('./components/mpvue-echarts/src/echarts.wxml');
 
 __wxAppCode__['components/uni-badge/uni-badge.wxss']=setCssToHead(["@charset \x22UTF-8\x22;\n.",[1],"uni-badge { font-family: \x27Helvetica Neue\x27, Helvetica, sans-serif; -webkit-box-sizing: border-box; box-sizing: border-box; font-size: 12px; line-height: 1; display: inline-block; padding: 3px 6px; color: #333; border-radius: 100px; background-color: #f1f1f1 }\n.",[1],"uni-badge.",[1],"uni-badge-inverted { padding: 0 5px 0 0; color: #999; background-color: transparent }\n.",[1],"uni-badge-primary { color: #fff; background-color: #007aff }\n.",[1],"uni-badge-primary.",[1],"uni-badge-inverted { color: #007aff; background-color: transparent }\n.",[1],"uni-badge-success { color: #fff; background-color: #4cd964 }\n.",[1],"uni-badge-success.",[1],"uni-badge-inverted { color: #4cd964; background-color: transparent }\n.",[1],"uni-badge-warning { color: #fff; background-color: #f0ad4e }\n.",[1],"uni-badge-warning.",[1],"uni-badge-inverted { color: #f0ad4e; background-color: transparent }\n.",[1],"uni-badge-error { color: #fff; background-color: #dd524d }\n.",[1],"uni-badge-error.",[1],"uni-badge-inverted { color: #dd524d; background-color: transparent }\n.",[1],"uni-badge--small { -webkit-transform: scale(.8); -ms-transform: scale(.8); transform: scale(.8); -webkit-transform-origin: center center; -ms-transform-origin: center center; transform-origin: center center }\n",],undefined,{path:"./components/uni-badge/uni-badge.wxss"});    

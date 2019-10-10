@@ -16,7 +16,8 @@
         },
         "modules" : {
             "Contacts" : {},
-            "Maps" : {}
+            "Maps" : {},
+            "Bluetooth" : {}
         },
         /* 模块配置 */
         "distribute" : {
@@ -30,6 +31,9 @@
                     "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\"/>",
                     "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>",
                     "<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.BLUETOOTH\"/>",
+                    "<uses-permission android:name=\"android.permission.BLUETOOTH_ADMIN\"/>",
+                    "<uses-permission android:name=\"android.permission.BLUETOOTH_PRIVILEGED\"/>",
                     "<uses-permission android:name=\"android.permission.CALL_PHONE\"/>",
                     "<uses-permission android:name=\"android.permission.CAMERA\"/>",
                     "<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>",

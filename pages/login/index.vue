@@ -43,6 +43,149 @@
 					console.log(res);
 				}
 			});
+			uni.showModal({
+				content: "测试蓝牙",
+				showCancel: true
+			});
+			uni.showModal({
+				content: plus,
+				showCancel: true
+			});
+			uni.showModal({
+				content: plus.bluetooth,
+				showCancel: true
+			});
+			plus.bluetooth.getBluetoothAdapterState({
+				success:function(e){
+					uni.showModal({
+						content: 'state success: '+JSON.stringify(e),
+						showCancel: true
+					});
+				},
+				fail:function(e){
+					uni.showModal({
+						content: 'state error: '+JSON.stringify(e),
+						showCancel: true
+					});
+				}
+			});
+			plus.bluetooth.openBluetoothAdapter({
+					success:function(e){
+						console.log('open success: '+JSON.stringify(e));
+						plus.bluetooth.startBluetoothDevicesDiscovery({
+							success:function(e){
+								console.log('start discovery success: '+JSON.stringify(e));
+								uni.showModal({
+									content: 'start discovery success: '+JSON.stringify(e),
+									showCancel: true
+								});
+							},
+							fail:function(e){
+								console.log('start discovery failed: '+JSON.stringify(e));
+								uni.showModal({
+									content: 'start discovery failed: '+JSON.stringify(e),
+									showCancel: true
+								});
+							}
+						});
+					},
+					fail:function(e){
+						console.log('open failed: '+JSON.stringify(e));
+					}
+				});
+				setTimeout(function(){
+					uni.showModal({
+						content:'定时器20s',
+						showCancel: true
+					});
+					plus.bluetooth.getBluetoothDevices({
+						success:function(e){
+							var devices = e.devices;
+							uni.showModal({
+								content: '获取成功',
+								showCancel: true
+							});
+							uni.showModal({
+								content: JSON.stringify(e.devices),
+								showCancel: true
+							});
+						},
+						fail:function(e){
+							uni.showModal({
+								content: 'get devices failed: '+JSON.stringify(e),
+								showCancel: true
+							});
+						}
+					});
+					
+						plus.bluetooth.createBLEConnection({
+							deviceId:'8E66A0F4-4005-4EFB-37F2-5C3FB0793E0F',
+							success:function(e){
+								
+								var value = new ArrayBuffer(8);
+								var iv = new Int32Array(value);
+								iv[0] = 120, iv[2]=100;
+								// 写入低功耗蓝牙设备的特征值
+								function writeCharacteristics(){
+									plus.bluetooth.writeBLECharacteristicValue({
+										deviceId:deviceId,
+										serviceId:serviceId,
+										characteristicId:characteristicId,
+										value:value,
+										success:function(e){
+											uni.showModal({
+												content: 'write characteristics success: '+JSON.stringify(e),
+												showCancel: true
+											});
+										},
+										fail:function(e){
+											uni.showModal({
+												content: 'write characteristics failed: '+JSON.stringify(e),
+												showCancel: true
+											});
+										}
+									});
+								}
+								writeCharacteristics();
+								
+								uni.showModal({
+									content: '连接成功',
+									showCancel: true
+								});
+							},
+							fail:function(e){
+								uni.showModal({
+									content: 'create connection failed: '+JSON.stringify(e),
+									showCancel: true
+								});
+							}
+						});
+						
+
+						
+						
+				},20000)
+				
+				plus.bluetooth.getBluetoothDevices({
+					success:function(e){
+						var devices = e.devices;
+						uni.showModal({
+							content: '获取成功',
+							showCancel: true
+						});
+						uni.showModal({
+							content: JSON.stringify(e.devices),
+							showCancel: true
+						});
+					},
+					fail:function(e){
+						uni.showModal({
+							content: 'get devices failed: '+JSON.stringify(e),
+							showCancel: true
+						});
+					}
+				});
+				
 		},
 		methods: {
 			changeKeep(value) {

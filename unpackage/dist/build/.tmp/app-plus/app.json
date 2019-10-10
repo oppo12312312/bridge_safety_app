@@ -48,11 +48,12 @@
     ]
   },
   "nvueCompiler": "weex",
+  "renderer": "auto",
   "splashscreen": {
     "alwaysShowBeforeRender": true,
     "autoclose": false
   },
   "appname": "gu-an-yun",
-  "compilerVersion": "2.1.3",
+  "compilerVersion": "2.2.2",
   "usingComponents": {}
 }

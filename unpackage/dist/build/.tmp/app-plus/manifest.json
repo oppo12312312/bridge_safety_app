@@ -22,6 +22,7 @@
     "Maps": {
       "coordType": "gcj02"
     },
+    "Bluetooth": {},
     "UniNView": {
       "description": "UniNView原生渲染"
     }
@@ -90,6 +91,9 @@
           "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\"/>",
           "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>",
           "<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>",
+          "<uses-permission android:name=\"android.permission.BLUETOOTH\"/>",
+          "<uses-permission android:name=\"android.permission.BLUETOOTH_ADMIN\"/>",
+          "<uses-permission android:name=\"android.permission.BLUETOOTH_PRIVILEGED\"/>",
           "<uses-permission android:name=\"android.permission.CALL_PHONE\"/>",
           "<uses-permission android:name=\"android.permission.CAMERA\"/>",
           "<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>",
@@ -133,9 +137,10 @@
       }
     },
     "uni-app": {
-      "compilerVersion": "2.1.3",
+      "compilerVersion": "2.2.2",
       "control": "v8",
-      "nvueCompiler": "weex"
+      "nvueCompiler": "weex",
+      "renderer": "auto"
     },
     "secondwebview": {
       "id": "1",
